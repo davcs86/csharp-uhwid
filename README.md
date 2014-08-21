@@ -40,9 +40,9 @@ This simple class (about 8kb) generates two unique IDs.
 
 * With git from a terminal:
 
-```sh
-git clone https://github.com/davcs86/csharp-uhwid.git
-```
+    ```sh
+    git clone https://github.com/davcs86/csharp-uhwid.git
+    ```
 
 ##How to Use:
 
