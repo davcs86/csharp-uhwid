@@ -50,22 +50,22 @@ git clone https://github.com/davcs86/csharp-uhwid.git
 
 2. Add the namespace **UHWID** where you'll use the class.
 
-```c#
-using UHWID;
-```
+    ```c#
+    using UHWID;
+    ```
 
 3. Declare a new object 
 
-```c#
-UniqueHWID UHWIDEngine = new UniqueHWID();
-```
+    ```c#
+    UniqueHWID UHWIDEngine = new UniqueHWID();
+    ```
 
 4. Get any of the UIDs
 
-```c#
-String SimpleUID = UHWIDEngine.SimpleUID;
-String AdvancedUID = UHWIDEngine.AdvancedUID;
-```
+    ```c#
+    String SimpleUID = UHWIDEngine.SimpleUID;
+    String AdvancedUID = UHWIDEngine.AdvancedUID;
+    ```
 
 ## Support
 
