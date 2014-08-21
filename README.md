@@ -40,7 +40,7 @@ This simple class (about 8kb) generates two unique IDs.
 
 * With git from a terminal:
 
-```
+```sh
 git clone https://github.com/davcs86/csharp-uhwid.git
 ```
 
@@ -50,19 +50,19 @@ git clone https://github.com/davcs86/csharp-uhwid.git
 
 2. Add the namespace **UHWID** where you'll use the class.
 
-```
+```c#
 using UHWID;
 ```
 
 3. Declare a new object 
 
-```csharp
+```c#
 UniqueHWID UHWIDEngine = new UniqueHWID();
 ```
 
 4. Get any of the UIDs
 
-```csharp
+```c#
 String SimpleUID = UHWIDEngine.SimpleUID;
 String AdvancedUID = UHWIDEngine.AdvancedUID;
 ```
