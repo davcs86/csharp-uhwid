@@ -8,36 +8,30 @@ using System.Security.Cryptography;
 
 namespace UHWID
 {
-    public class UniqueHWID
+    public class UHWIDEngine
     {
         private string _uID;
+        private string _uIDW;
         private bool _includeWindows = false;
-        public string uID
+        public string SimpleUID
         {
             get { return _uID; }
-            set { _uID = value; }
         }
-        public UniqueHWID()
+        public string AdvancedUID
         {
-            this._includeWindows = false;
-            doUniqueID();
+            get { return _uIDW; }
         }
-        public UniqueHWID(bool includeWindows)
+        public UHWIDEngine()
         {
-            this._includeWindows = includeWindows;
             doUniqueID();
         }
         private void doUniqueID()
         {
             string volumeSerial = DiskID.getDiskID();
             string cpuID = CpuID.getCpuID();
-            string uniqueID = volumeSerial + cpuID;
-            if (this._includeWindows == true)
-            {
-                string windowsID = WindowsID.getWindowsID();
-                uniqueID += windowsID;
-            }
-            _uID = uniqueID;
+            string windowsID = WindowsID.getWindowsID();
+            _uID = volumeSerial + cpuID;
+            _uIDW = _uID + windowsID;
         }
     }
     public static class CpuID

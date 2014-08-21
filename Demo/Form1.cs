@@ -18,10 +18,9 @@ namespace Demo
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            UniqueHWID uniqueID = new UniqueHWID();
-            textBox2.Text = uniqueID.uID;
-            uniqueID = new UniqueHWID(true);
-            textBox1.Text = uniqueID.uID;
+            UHWIDEngine uniqueUIDs = new UHWIDEngine();
+            textBox2.Text = uniqueUIDs.SimpleUID;
+            textBox1.Text = uniqueUIDs.AdvancedUID;
         }
     }
 }

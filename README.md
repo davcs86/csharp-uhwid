@@ -57,14 +57,14 @@ This simple class (about 8kb) generates two unique IDs.
 3. Declare a new object 
 
     ```c#
-    UniqueHWID UHWIDEngine = new UniqueHWID();
+    UHWIDEngine uniqueUIDs = new UHWIDEngine();
     ```
 
 4. Get any of the UIDs
 
     ```c#
-    String SimpleUID = UHWIDEngine.SimpleUID;
-    String AdvancedUID = UHWIDEngine.AdvancedUID;
+    String SimpleUID = uniqueUIDs.SimpleUID;
+    String AdvancedUID = uniqueUIDs.AdvancedUID;
     ```
 
 ## Support
