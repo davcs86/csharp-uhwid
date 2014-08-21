@@ -69,7 +69,7 @@ String AdvancedUID = UHWIDEngine.AdvancedUID;
 
 ## Support
 
-Drop me line to: <http://d-castillo.info/contactme/> or to: davcs86@gmail.com
+Drop me line on: <http://d-castillo.info/contactme/> or to: davcs86@gmail.com
 
 ## Donations
 
