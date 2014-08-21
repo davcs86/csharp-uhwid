@@ -21,7 +21,7 @@ This simple class (about 8kb) generates two unique IDs.
 ####WARNINGS
 
 * **DO NOT** use any of the generated UIDs for production environments, since the code is public, anyone can replicate the UID. It's **STRONGLY RECOMMENDED** to scramble/encrypt the generated UID with a application specific algorithm.
-* **NEVER** use external libraries (like this) to generate & validate licenses, due to anybody could patch the dll file to break your licensing system.
+* **AVOID** use external libraries (like this) to generate & validate licenses, due to anybody could patch the dll file to break your licensing system.
 
 ## Links
 
