@@ -10,29 +10,22 @@ namespace UHWID
 {
     public class UHWIDEngine
     {
-        private string _uID;
-        private string _uIDW;
-        private bool _includeWindows = false;
-        public string SimpleUID
-        {
-            get { return _uID; }
-        }
-        public string AdvancedUID
-        {
-            get { return _uIDW; }
-        }
-        public UHWIDEngine()
-        {
-            doUniqueID();
-        }
-        private void doUniqueID()
-        {
-            string volumeSerial = DiskID.getDiskID();
-            string cpuID = CpuID.getCpuID();
-            string windowsID = WindowsID.getWindowsID();
-            _uID = volumeSerial + cpuID;
-            _uIDW = _uID + windowsID;
-        }
+        public string SimpleUid { get; private set; }
++
++        public string AdvancedUid { get; private set; }
++
++        public UhwidEngine()
++        {
++            DoUniqueId();
++        }
++        private void DoUniqueId()
++        {
++            var volumeSerial = DiskId.GetDiskId();
++            var cpuId = CpuId.GetCpuId();
++            var windowsId = WindowsId.GetWindowsId();
++            SimpleUid = volumeSerial + cpuId;
++            AdvancedUid = SimpleUid + windowsId;
++        }
     }
     public static class CpuID
     {
@@ -174,33 +167,33 @@ namespace UHWID
         {
             return WindowsId();
         }
-        private static string WindowsId()
-        {
-            string windowsInfo = "";
-            ManagementObjectSearcher managClass = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_OperatingSystem");
-
-            ManagementObjectCollection managCollec = managClass.Get();
-
-            bool is64bits = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("PROCESSOR_ARCHITEW6432"));
-
-            foreach (ManagementObject managObj in managCollec)
-            {
-                windowsInfo = managObj.Properties["Caption"].Value.ToString() + Environment.GetEnvironmentVariable("PROCESSOR_ARCHITEW6432") + managObj.Properties["Version"].Value.ToString();
-                break;
-            }
-            windowsInfo.Replace(" ", "");
-            windowsInfo.Replace("Windows", "");
-            windowsInfo.Replace("windows", "");
-            windowsInfo += (is64bits) ? ":64" : "=32";
-
-            //md5 hash of the windows version
-            MD5 md5Hasher = MD5.Create();
-            byte[] wi = md5Hasher.ComputeHash(Encoding.Default.GetBytes(windowsInfo));
-            string wiHex = BitConverter.ToString(wi);
-            wiHex = wiHex.Replace("-", "");
-
-            return wiHex;
-        }
+         private static string Windowsid()
++        {
++            var windowsInfo = "";
++            var managClass = new ManagementObjectSearcher("root\\CIMV2", "SELECT * FROM Win32_OperatingSystem");
++
++            var managCollec = managClass.Get();
++
++            var is64Bits = Environment.Is64BitOperatingSystem;
++            
++            foreach (var o in managCollec)
++            {
++                var managObj = (ManagementObject) o;
++                windowsInfo = managObj.Properties["Caption"].Value + Environment.UserName + (string)managObj.Properties["Version"].Value;
++                break;
++            }
++            windowsInfo.Replace(" ", "");
++            windowsInfo.Replace("Windows", "");
++            windowsInfo.Replace("windows", "");
++            windowsInfo += (is64Bits) ? " 64bit" : " 32bit";
++
++            //md5 hash of the windows version
++            var md5Hasher = MD5.Create();
++            var wi = md5Hasher.ComputeHash(Encoding.Default.GetBytes(windowsInfo));
++            var wiHex = BitConverter.ToString(wi);
++            wiHex = wiHex.Replace("-", "");
++           return wiHex;
++        }
     }
    
 }
