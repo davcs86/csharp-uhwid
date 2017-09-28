@@ -18,14 +18,13 @@ This simple class (about 8kb) generates two unique IDs.
 * The MD5 hash is generated using the Windows codename and the build number in order to avoid repetition when the build number is the same for 2 or more different operating systems. E.g. Windows 7 & Windows Server 2008 had the same build number. You can check out an approximate list of the Windows Version Numbers on <http://www.gaijin.at/en/lstwinver.php>.
 * The project files and the solution files were intentionally made in Visual C# 2010 Express for convenience of users, and targets to .NET Framework 2.0 x86 with compatibility purposes.
 
-#### WARNINGS
+#### CONSIDERATIONS
 
 * **DO NOT** use any of the generated UIDs for production environments, since the code is public, anyone can replicate the UID. It's **STRONGLY RECOMMENDED** to scramble/encrypt the generated UID with a application specific algorithm.
 * **AVOID** use external libraries (like this) to generate & validate licenses, due to anybody could patch the dll file to break your licensing system.
 
 ## Links
 
-* Homepage: <http://d-castillo.info/projects/csharp-uhwid>
 * Source: <https://github.com/davcs86/csharp-uhwid>
 * Bugs:   <https://github.com/davcs86/csharp-uhwid/issues>
 
@@ -64,7 +63,7 @@ This simple class (about 8kb) generates two unique IDs.
 
 ## Support
 
-Drop me line on: <http://d-castillo.info/contactme/> or to: davcs86@gmail.com
+Drop me line on: davcs86@gmail.com
 
 ## Donations
 
