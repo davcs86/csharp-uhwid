@@ -1,6 +1,8 @@
 C# Unique Hardware ID
 ============
 
+[![Build Status](https://travis-ci.org/davcs86/csharp-uhwid.svg)](https://travis-ci.org/davcs86/csharp-uhwid)
+
 C# class to generate an Unique Hardware ID.
 
 Sometimes is required create unique identifiers for PCs. There are different approaches for doing that, the most basic among these is to use hardware IDs since they're constant (at most of time).
